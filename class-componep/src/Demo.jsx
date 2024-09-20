@@ -1,8 +1,12 @@
 import { Component } from "react";
 
-class demo extends Component{
+class Demo extends Component{
+  // constructor
+    
     render(){
-      <h1></h1>
+     return(
+      <h1>2553</h1>
+     )
     }
 }
-export default demo ;
+export default Demo ;

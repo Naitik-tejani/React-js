@@ -1,10 +1,13 @@
+import Demo from "./demo"
 
 
 function App() {
   
   return (
     <>
-     <demo />
+     <Demo/>
+     <h1>raj</h1>
+     
     </>
   )
 }

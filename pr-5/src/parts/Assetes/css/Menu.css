@@ -1,0 +1,112 @@
+.filterBox {
+   
+    flex-direction: column;
+    gap: 15px;
+    margin-right: 20px;
+}
+
+.filter-btn {
+    background-color: #f6f5f5;
+    border: 1px solid #ddd;
+    padding: 12px 15px;
+    margin-bottom: 5px;
+    
+    text-align: center;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    transition: all 0.3s ease;
+    width: 100%;
+    border-radius: 8px;
+}
+
+.filter-btn:hover {
+    /* background-color: #3e7f6d; */
+    color: #3e7f6d;
+    border: 2px solid #3e7f6d;
+}
+
+/* Image Section Styling */
+.filterImg {
+    position: relative;
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.filterImg img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.filterImg:hover img {
+    transform: scale(1.05);
+}
+.img-title {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #fff;
+  
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.img-subtitle {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    color: #fff;
+  
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+/* Button Inside Image */
+.shop-now-btn1 {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #3e7f6d;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.filterImg1 {
+    position: relative;
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.filterImg1 img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.filterImg1:hover img {
+    transform: scale(1.05);
+}
+
+.shop-now-btn1:hover {
+    background-color: #2e6554;
+}
+.filterImg1{
+    margin-left: 20px;
+}

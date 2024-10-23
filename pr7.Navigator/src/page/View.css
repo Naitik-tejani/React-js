@@ -1,0 +1,126 @@
+/* DarkModeView.css */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #181818;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: #282828;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 900px;
+    margin: 20px; /* Adds responsiveness */
+}
+
+h1 {
+    text-align: center;
+    font-size: 28px;
+    color: #1db954;
+    margin-bottom: 30px;
+}
+
+button {
+    background-color: #1db954;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+}
+
+button:hover {
+    background-color: #1aa34a;
+}
+
+button.delete-btn {
+    background-color: #e74c3c;
+}
+
+button.delete-btn:hover {
+    background-color: #c0392b;
+}
+
+button.deactivate-btn {
+    background-color: red;
+}
+
+button.activate-btn {
+    background-color: green;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #444;
+}
+
+th, td {
+    padding: 15px;
+    text-align: center;
+}
+
+th {
+    background-color: #333;
+    color: #fff;
+    font-weight: bold;
+}
+
+td {
+    background-color: #222;
+    color: #fff;
+}
+
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+/* Styling for the 'Add+' link */
+a {
+    display: inline-block;
+    background-color: #1db954;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-top: 20px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+a:hover {
+    background-color: #1aa34a;
+}
+
+/* Optional media query for responsiveness */
+@media (max-width: 768px) {
+    .container {
+        padding: 30px;
+        width: 100%;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 10px;
+    }
+}

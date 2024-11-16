@@ -1,44 +1,59 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import './Add.css';  // Add your CSS file
+import './Add.css'; // Ensure the CSS file matches the styles below.
 
 function Add() {
     let navigate = useNavigate();
-     const [name, setname] = useState("");
-     const [phone, setphone] = useState("");
+    const [name, setName] = useState("");
+    const [phone, setPhone] = useState("");
+    const [records, setRecords] = useState(JSON.parse(localStorage.getItem('curd')) || []);
 
-    const [recode, setrecode] = useState(JSON.parse(localStorage.getItem('curd')) || []);
-    
-    const fileHandling = (e) => {
+    const handleFormSubmit = (e) => {
         e.preventDefault();
         alert('Record Added');
-        let obj = {
+        let newRecord = {
             id: Math.floor(Math.random() * 1000),
             name: name,
             phone: phone,
-            actvity: "active"
+            activity: "active"
         };
 
-        let updeta = [...recode, obj];
-        setrecode(updeta);
+        let updatedRecords = [...records, newRecord];
+        setRecords(updatedRecords);
 
-        localStorage.setItem('curd', JSON.stringify(updeta));
+        localStorage.setItem('curd', JSON.stringify(updatedRecords));
         navigate('/');
     };
 
     return (
-        <div className="container">
-            <h1>-: Add Data :-</h1>
-            <form onSubmit={fileHandling}>
-                <label>-: Name :-</label>
-                <input value={name} onChange={(e) => setname(e.target.value)} type="text" placeholder="Enter Name" required />
-                
-                <label>-: Phone :-</label>
-                <input value={phone} onChange={(e) => setphone(e.target.value)} type="text" placeholder="Enter Phone Number" required />
-                
-                <input type="submit" value="Submit" />
-            </form>
-            <Link to={`/`}>View Records</Link>
+        <div className="add-container">
+            <div className="form-card">
+                <h1>Add New Record</h1>
+                <form onSubmit={handleFormSubmit}>
+                    <div className="form-group">
+                        <label>Name</label>
+                        <input
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            type="text"
+                            placeholder="Enter full name"
+                            required
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label>Phone</label>
+                        <input
+                            value={phone}
+                            onChange={(e) => setPhone(e.target.value)}
+                            type="text"
+                            placeholder="Enter phone number"
+                            required
+                        />
+                    </div>
+                    <button type="submit" className="submit-btn">Add Record</button>
+                </form>
+                <Link to="/" className="view-records-link">View All Records</Link>
+            </div>
         </div>
     );
 }

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../parts/Add.css';
+import './Add.css'; 
 
 export default function Add() {
   const [name, setName] = useState('');
@@ -10,22 +10,16 @@ export default function Add() {
   const [gender, setGender] = useState('');
   const [course, setCourse] = useState('');
   const [status, setStatus] = useState('');
-  const [allrecord,setAllRecord]=useState([])
 
-  const handelbar = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     const newRecord = { name, email, pass, date, gender, course, status };
-
-
     const storedRecords = JSON.parse(localStorage.getItem('records')) || [];
-
     const updatedRecords = [...storedRecords, newRecord];
 
-    
     localStorage.setItem('records', JSON.stringify(updatedRecords));
 
-   
     setName('');
     setEmail('');
     setPass('');
@@ -34,63 +28,97 @@ export default function Add() {
     setCourse('');
     setStatus('');
 
-    alert("Record added successfully!");
+    alert('Record added successfully!');
   };
 
   return (
-    <>
-      <Link to="/View">View</Link>
-
-      <section>
-        <div className="container mt-5">
-          <div className="card" style={{ backgroundColor: '#3c3c50', color: 'white', boxShadow: '0px 0px 4px 1px white', borderRadius: '10px' }}>
-            <h2 className="card-title">Simple Form</h2>
-            <form onSubmit={handelbar}>
-              <div className="mb-3">
-                <h6 style={{ textAlign: 'left' }}>Name</h6>
-                <input type="text" className="form-control" id="name" placeholder="Enter your name" style={{ backgroundColor: '#5e5e6f', boxShadow: '0px 0px 5px 0px white', border: 'none', color: 'white' }} onChange={(e) => setName(e.target.value)} value={name} />
-              </div>
-
-              <div className="mb-3">
-                <h6 style={{ textAlign: 'left' }}>Email</h6>
-                <input type="email" className="form-control" id="email" placeholder="Enter your email" style={{ backgroundColor: '#5e5e6f', boxShadow: '0px 0px 5px 0px white', border: 'none', color: 'white' }} onChange={(e) => setEmail(e.target.value)} value={email} />
-              </div>
-
-              <div className="mb-3">
-                <h6 style={{ textAlign: 'left' }}>Password</h6>
-                <input type="password" className="form-control" id="password" placeholder="Enter your password" style={{ backgroundColor: '#5e5e6f', boxShadow: '0px 0px 5px 0px white', border: 'none', color: 'white' }} onChange={(e) => setPass(e.target.value)} value={pass} />
-              </div>
-
-              <div className="mb-3">
-                <h6 style={{ textAlign: 'left' }}>Date of Birth</h6>
-                <input type="date" className="form-control" id="date" style={{ backgroundColor: '#5e5e6f', boxShadow: '0px 0px 5px 0px white', border: 'none', color: 'white' }} onChange={(e) => setDate(e.target.value)} value={date} />
-              </div>
-
-              <div className="mb-3">
-                <h6 style={{ textAlign: 'left' }}>Gender</h6>
-                <select className="form-select" style={{ backgroundColor: '#5e5e6f', boxShadow: '0px 0px 5px 0px white', border: 'none', color: 'white' }} onChange={(e) => setGender(e.target.value)} value={gender}>
-                  <option value="">Select Gender</option>
-                  <option value="Male">Male</option>
-                  <option value="Female">Female</option>
-                  <option value="Other">Other</option>
-                </select>
-              </div>
-
-              <div className="mb-3">
-                <h6 style={{ textAlign: 'left' }}>Course</h6>
-                <input type="text" className="form-control" id="course" placeholder="Enter your course" style={{ backgroundColor: '#5e5e6f', boxShadow: '0px 0px 5px 0px white', border: 'none', color: 'white' }} onChange={(e) => setCourse(e.target.value)} value={course} />
-              </div>
-
-              <div className="mb-3">
-                <h6 style={{ textAlign: 'left' }}>Status</h6>
-                <input type="text" className="form-control" id="status" placeholder="Enter your status" style={{ backgroundColor: '#5e5e6f', boxShadow: '0px 0px 5px 0px white', border: 'none', color: 'white' }} onChange={(e) => setStatus(e.target.value)} value={status} />
-              </div>
-
-              <button type="submit" className="btn btn-primary">Submit</button>
-            </form>
+    <div className="add-form-container">
+      <div className="form-card">
+        <h2>Add New Record</h2>
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label>Name</label>
+            <input
+              type="text"
+              placeholder="Enter your name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
           </div>
-        </div>
-      </section>
-    </>
+
+          <div className="form-group">
+            <label>Email</label>
+            <input
+              type="email"
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Password</label>
+            <input
+              type="password"
+              placeholder="Enter your password"
+              value={pass}
+              onChange={(e) => setPass(e.target.value)}
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Date of Birth</label>
+            <input
+              type="date"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Gender</label>
+            <select
+              value={gender}
+              onChange={(e) => setGender(e.target.value)}
+              required
+            >
+              <option value="">Select Gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div className="form-group">
+            <label>Course</label>
+            <input
+              type="text"
+              placeholder="Enter your course"
+              value={course}
+              onChange={(e) => setCourse(e.target.value)}
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Status</label>
+            <input
+              type="text"
+              placeholder="Enter your status"
+              value={status}
+              onChange={(e) => setStatus(e.target.value)}
+              required
+            />
+          </div>
+
+          <button type="submit" className="submit-btn">Submit</button>
+        </form>
+        <Link to="/View" className="view-link">View All Records</Link>
+      </div>
+    </div>
   );
 }

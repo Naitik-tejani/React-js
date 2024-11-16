@@ -1,0 +1,118 @@
+/* View.css */
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .view-container {
+    padding: 20px;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .header h2 {
+    color: #f0efef;
+  }
+  
+  .btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .btn-primary {
+    background-color: #4caf50;
+    color: #fff;
+  }
+  
+  .btn-primary:hover {
+    background-color: #45a049;
+  }
+  
+  .filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .search-bar {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    flex: 1;
+  }
+  
+  .filter-dropdown {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .record-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: #121212;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .record-table th,
+  .record-table td {
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .record-table th {
+    background-color: #4caf50;
+    color: #fff;
+  }
+  
+  .status-btn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .status-btn.active {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .status-btn.inactive {
+    background-color: #ff4d4d;
+    color: white;
+  }
+  
+  .action-btn {
+    padding: 5px 10px;
+    margin-right: 5px;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+    color: white;
+  }
+  
+  .delete-btn {
+    background-color: #ff4d4d;
+  }
+  
+  .edit-btn {
+    background-color: #2196f3;
+  }
+
+  

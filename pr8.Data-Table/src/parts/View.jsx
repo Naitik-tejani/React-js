@@ -63,7 +63,7 @@ export default function View() {
     <div className="view-container">
       <div className="header">
         <h2>Manage Records</h2>
-        <Link to="/Add" className="btn btn-primary">Add Record</Link>
+        <Link to="/" className="btn btn-primary">Add Record</Link>
       </div>
 
       <div className="filters">

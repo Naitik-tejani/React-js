@@ -104,7 +104,7 @@ export default function Add() {
             />
           </div>
 
-          <div className="form-group">
+          {/* <div className="form-group">
             <label>Status</label>
             <input
               type="text"
@@ -113,7 +113,7 @@ export default function Add() {
               onChange={(e) => setStatus(e.target.value)}
               required
             />
-          </div>
+          </div> */}
 
           <button type="submit" className="submit-btn">Submit</button>
         </form>

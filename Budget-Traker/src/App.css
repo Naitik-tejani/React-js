@@ -1,0 +1,142 @@
+/* General Styles */
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #b6e1e7;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 900px;
+  margin: 40px auto; /* Center the content with adequate spacing */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.app-title {
+  text-align: center;
+  color: #4a90e2;
+  margin-bottom: 30px;
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+/* Card Styles */
+.card {
+  background: #d7e7b6;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 25px; /* Separate cards with extra space */
+  padding: 25px; /* Increase padding for readability */
+}
+
+.card h2 {
+  font-size: 1.5em;
+  margin-bottom: 20px; /* Separate header from inputs */
+}
+
+.card form input {
+  width: 100%;
+  padding: 12px; /* Larger padding for better usability */
+  margin: 10px 0; /* Space between inputs */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+  box-sizing: border-box;
+}
+
+.card form button {
+  width: 100%;
+  padding: 12px;
+  background: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.card form button:hover {
+  background: #357ab8;
+}
+
+/* Summary Section */
+.summary {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px; /* Add space above the summary section */
+}
+
+.summary-card {
+  flex: 1;
+  margin: 0 10px; /* Add spacing between summary cards */
+  padding: 20px; /* Ensure enough padding inside each card */
+  background: #ecfaec;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.summary-card h3 {
+  color: #777;
+  margin-bottom: 10px;
+}
+
+.summary-card p {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.summary-card.negative p {
+  color: #e74c3c;
+}
+
+.summary-card.positive p {
+  color: #2ecc71;
+}
+
+/* Expense List */
+.expense-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.expense-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0; /* Increase padding between list items */
+  border-bottom: 1px solid #eee;
+}
+
+.expense-list li span {
+  flex: 1;
+}
+
+.delete-btn {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 15px; /* Larger padding for better usability */
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background: #c0392b;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .summary {
+    flex-direction: column; /* Stack summary cards on smaller screens */
+  }
+
+  .summary-card {
+    margin: 10px 0;
+  }
+}

@@ -1,72 +1,89 @@
-import { getDatabase, onValue, ref, remove } from 'firebase/database'
-import React, { useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import { app } from '../../firebase'
-
+import { getDatabase, onValue, ref, remove } from 'firebase/database';
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { app } from '../../firebase';
+import { Table, Button, Container, Alert } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const View = () => {
     const navigate = useNavigate();
-    const [record, setRecord] = useState("");
+    const [record, setRecord] = useState({});
 
-    const db = getDatabase(app)
+    const db = getDatabase(app);
 
-    const viewData = () => { 
+    // Fetch user data from Firebase
+    const viewData = () => {
         const users = ref(db, "users");
-
-        onValue(users, (u) => {
-            const data = u.val();
-            setRecord(data)
-        })
-
-    }
+        onValue(users, (snapshot) => {
+            const data = snapshot.val();
+            if (data) {
+                setRecord(data);
+            } else {
+                setRecord({});
+            }
+        });
+    };
 
     useEffect(() => {
         viewData();
-    }, [])
+    }, []);
 
+    // Delete user record
     const deleteUser = (id) => {
-        const users = ref(db, `users/${id}`);
-        remove(users);
-        alert("record delete");
-        viewData();
-    }
-
-
+        const userRef = ref(db, `users/${id}`);
+        remove(userRef)
+            .then(() => {
+                alert("Record deleted successfully!");
+                viewData();
+            })
+            .catch((err) => {
+                console.error("Error deleting record: ", err);
+                alert("Failed to delete record.");
+            });
+    };
 
     return (
-        <div align="center">
-            <h2>View User</h2>
-            <table border={1}>
-                <thead>
+        <Container className="mt-5">
+            <h2 className="text-center mb-4">User Records</h2>
+
+            {/* Table to display users */}
+            <Table striped bordered hover responsive>
+                <thead className="table-dark">
                     <tr>
-                        <th>Srno</th>
+                        <th>#</th>
                         <th>Name</th>
                         <th>Phone</th>
-                        <th>Action</th>
+                        
                     </tr>
                 </thead>
                 <tbody>
-                    {
-                        record && Object.entries(record).map(([key, val]) => {
-                            return (
-                                <tr key={key}>
-                                    <td>{key}</td>
-                                    <td>{val.name}</td>
-                                    <td>{val.phone}</td>
-                                    <td>
-                                        <button onClick={() => deleteUser(key)}>Delete</button> &nbsp;
-                                        <button onClick={() => navigate(`/edit`, { state: [key, val] })}>Edit</button>
-                                    </td>
-                                </tr>
-                            )
-                        })
-                    }
-
+                    {record && Object.entries(record).length > 0 ? (
+                        Object.entries(record).map(([key, val], index) => (
+                            <tr key={key}>
+                                <td>{index + 1}</td> {/* Serial number */}
+                                <td>{val.name}</td>
+                                <td>{val.phone}</td>
+                                
+                            </tr>
+                        ))
+                    ) : (
+                        <tr>
+                            <td colSpan="4" className="text-center">
+                                <Alert variant="info">No records found</Alert>
+                            </td>
+                        </tr>
+                    )}
                 </tbody>
-            </table>
-            <Link to={`/add`}>Add</Link>
-        </div>
-    )
-}
+            </Table>
 
-export default View
+            {/* Link to Add New Record */}
+            <div className="text-center">
+                <Link to="/add">
+                    <Button variant="primary">Add New Record</Button>
+                </Link>
+            </div>
+        </Container>
+    );
+};
+
+export default View;

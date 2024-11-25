@@ -50,10 +50,11 @@ const View = () => {
             <Table striped bordered hover responsive>
                 <thead className="table-dark">
                     <tr>
-                        <th>#</th>
+                        <th>Id</th>
                         <th>Name</th>
                         <th>Phone</th>
-                        
+                        <th>Action</th>
+
                     </tr>
                 </thead>
                 <tbody>
@@ -63,7 +64,11 @@ const View = () => {
                                 <td>{index + 1}</td> {/* Serial number */}
                                 <td>{val.name}</td>
                                 <td>{val.phone}</td>
-                                
+                                <td>
+                                    <button onClick={() => deleteUser(key)}>Delete</button> &nbsp;
+                                    <button onClick={() => navigate(`/edit`, { state: [key, val] })}>Edit</button>
+                                </td>
+
                             </tr>
                         ))
                     ) : (

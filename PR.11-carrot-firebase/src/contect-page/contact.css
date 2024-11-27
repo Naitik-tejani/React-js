@@ -1,72 +1,67 @@
+/* General Page Styling */
 .contact-page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 40px;
-  background-color: #f0f0f5;
-  font-family: 'Arial', sans-serif;
-}
-
-.contact-page h1 {
-  font-size: 3em;
-  margin-bottom: 30px;
-  color: #333;
-  text-align: center;
-}
-
-.contact-page form {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 600px;
-  background-color: #fff;
-  padding: 30px;
+  background-color: #f4f9f9; /* Light cyan background */
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  color: #343a40; /* Dark gray text for good contrast */
 }
 
-.contact-page label {
-  margin-bottom: 15px;
-  font-size: 1.2em;
-  color: #555;
+/* Typography */
+h1 {
+  color: #05668d; /* Deep teal */
+  font-weight: 700;
 }
 
-.contact-page input[type="text"],
-.contact-page input[type="tel"],
-.contact-page textarea {
-  width: 100%;
-  padding: 12px;
-  margin-top: 5px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
+p {
+  color: #6c757d; /* Muted gray text */
+}
+
+/* Form Inputs */
+.contact-form input,
+.contact-form textarea {
+  border: 1px solid #ced4da;
   border-radius: 5px;
-  font-size: 1em;
-  transition: border-color 0.3s;
+  background-color: #ffffff; /* White for form fields */
+  transition: box-shadow 0.2s ease-in-out, border-color 0.2s ease-in-out;
 }
 
-.contact-page input[type="text"]:focus,
-.contact-page input[type="tel"]:focus,
-.contact-page textarea:focus {
-  border-color: #007bff;
+.contact-form input:focus,
+.contact-form textarea:focus {
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.4);
+  border-color: #028090; /* Bright teal border on focus */
   outline: none;
 }
 
-.contact-page button {
-  padding: 15px 25px;
-  font-size: 1.2em;
-  color: #fff;
-  background-color: #007bff;
+/* Submit Button */
+.contact-form button {
+  background-color: #028090; /* Bright teal */
+  color: #ffffff; /* White text */
   border: none;
   border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+  padding: 10px 20px;
+  font-weight: bold;
+  transition: background-color 0.3s ease-in-out;
 }
 
-.contact-page button:hover {
-  background-color: #0056b3;
+.contact-form button:hover {
+  background-color: #05668d; /* Deep teal on hover */
+  color: #f4f9f9; /* Light cyan text on hover */
 }
 
-.contact-page button:active {
-  background-color: #004494;
+/* Form Layout */
+.contact-form .form-group label {
+  font-weight: bold;
+  color: #05668d; /* Deep teal */
 }
 
+/* Add responsiveness */
+@media (max-width: 768px) {
+  .contact-page {
+    padding: 20px;
+  }
+
+  .contact-form {
+    width: 100%;
+  }
+}

@@ -1,14 +1,19 @@
 import React, { useState } from "react";
 import "./contact.css"; // Importing contact.css
-import { app } from "../firebase"; // Import the Firebase app instance
+import { app } from "../firebase"; // Firebase app instance
 import { getDatabase, ref, set } from "firebase/database";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Button, Modal, Form, Container, Card, Row, Col } from "react-bootstrap";
 
 const Contact = () => {
+  const [show, setShow] = useState(false);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [review, setReview] = useState("");
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -35,6 +40,7 @@ const Contact = () => {
         setPhone("");
         setEmail("");
         setReview("");
+        handleClose(); // Close the modal
       })
       .catch((error) => {
         console.error("Error saving data:", error);
@@ -43,68 +49,81 @@ const Contact = () => {
   };
 
   return (
-    <div className="contact-page container py-5">
-      <h1 className="text-center mb-4">Contact Us</h1>
-      <p className="text-center mb-5">
-        We'd love to hear your feedback! Please fill out the form below and we’ll get back to you soon.
-      </p>
-      <form onSubmit={handleSubmit} className="contact-form mx-auto" style={{ maxWidth: "600px" }}>
-        <div className="form-group mb-3">
-          <label htmlFor="name" className="form-label">Name:</label>
-          <input
-            id="name"
-            type="text"
-            className="form-control"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            placeholder="Enter your name"
-            required
-          />
-        </div>
-        <div className="form-group mb-3">
-          <label htmlFor="phone" className="form-label">Contact Number:</label>
-          <input
-            id="phone"
-            type="tel"
-            className="form-control"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-            placeholder="Enter your contact number"
-            required
-          />
-        </div>
-        <div className="form-group mb-3">
-          <label htmlFor="email" className="form-label">Email:</label>
-          <input
-            id="email"
-            type="email"
-            className="form-control"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Enter your email"
-            required
-          />
-        </div>
-        <div className="form-group mb-4">
-          <label htmlFor="review" className="form-label">Review (max 250 words):</label>
-          <textarea
-            id="review"
-            className="form-control"
-            value={review}
-            onChange={(e) => setReview(e.target.value)}
-            maxLength="250"
-            placeholder="Write your feedback here..."
-            rows="4"
-            required
-          />
-        </div>
-        <div className="text-center">
-          <button type="submit" className="btn btn-primary px-4 py-2">
-            Submit
-          </button>
-        </div>
-      </form>
-    </div>
+    <Container className="contact-page py-5">
+      <Row className="justify-content-center">
+        <Col md={8}>
+          <Card className="shadow">
+            <Card.Body className="text-center">
+              <h1 className="mb-4">Contact Us</h1>
+              <p className="mb-4">
+                We'd love to hear your feedback! Click the button below to fill out the contact form.
+              </p>
+              <Button variant="primary" onClick={handleShow}>
+                Open Contact Form
+              </Button>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
+
+      {/* Bootstrap Modal */}
+      <Modal show={show} onHide={handleClose} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>Contact Us</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form onSubmit={handleSubmit}>
+            <Form.Group className="mb-3" controlId="formName">
+              <Form.Label>Name</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter your name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formPhone">
+              <Form.Label>Contact Number</Form.Label>
+              <Form.Control
+                type="tel"
+                placeholder="Enter your contact number"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                required
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formEmail">
+              <Form.Label>Email</Form.Label>
+              <Form.Control
+                type="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formReview">
+              <Form.Label>Review (max 250 words)</Form.Label>
+              <Form.Control
+                as="textarea"
+                rows={4}
+                placeholder="Write your feedback here..."
+                value={review}
+                onChange={(e) => setReview(e.target.value)}
+                maxLength="250"
+                required
+              />
+            </Form.Group>
+            <div className="text-center">
+              <Button variant="success" type="submit" className="px-4 py-2">
+                Submit
+              </Button>
+            </div>
+          </Form>
+        </Modal.Body>
+      </Modal>
+    </Container>
   );
 };
 

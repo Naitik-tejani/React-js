@@ -142,6 +142,12 @@ const Header = () => {
                       <li><a href="#">Buttons</a></li>
                     </ul>
                   </li>
+                  <li>
+                    <a href="#">
+                    <Link to="/contact">Contact Us<i className="fa-solid fa-chevron-down" /></Link>{/* Changed to Link */}
+                    </a>
+                    
+                  </li>
                 </ul>
               </div>
             </div>

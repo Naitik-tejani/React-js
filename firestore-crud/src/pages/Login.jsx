@@ -1,7 +1,7 @@
 import React from 'react';
 import { signInWithPopup } from "firebase/auth";
 import { googleAuthProvider, auth } from "../firebase";
-import { useNavigate } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 import './Login.css';
 
 const Login = () => {
@@ -9,8 +9,8 @@ const Login = () => {
 
     const handleSubmit = async () => {
         try {
-            await signInWithPopup(auth, googleAuthProvider);
-            navigate('/');
+            let data = await signInWithPopup(auth, googleAuthProvider)
+            navigate('/')
         } catch (err) {
             console.error(err);
             alert("Login failed. Please try again.");
@@ -31,7 +31,8 @@ const Login = () => {
                     Sign In with Google
                 </button>
             </div>
-           {/* <Link to={`/add`}>Add</Link> */}
+           <Link to={`/add`}>Add</Link> 
+           <Link to={`/Table`}>View</Link>  
         </div>
         
     );

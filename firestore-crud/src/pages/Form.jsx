@@ -87,7 +87,7 @@ const UserForm = () => {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.5 }}
       >
-        <Link to="/">View Users</Link>
+        <Link to="/Table">View Users</Link>
       </motion.div>
     </motion.div>
   );

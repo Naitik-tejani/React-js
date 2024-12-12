@@ -50,12 +50,12 @@
 }
 
 .btn-warning {
-  background-color: #ffc107;
+  background-color: #5bda2d;
   border: none;
 }
 
 .btn-warning:hover {
-  background-color: #e0a800;
+  background-color: #5bda2d;;
 }
 
 .btn-danger {

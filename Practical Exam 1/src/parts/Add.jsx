@@ -3,18 +3,18 @@ import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function Add({ onAddData }) {
-  const [name, setName] = useState("");
-  const [discription, setDiscription] = useState(""); // Fixed typo from 'Discription' to 'discription'
+  const [itemName, setItemName] = useState(""); // Changed 'name' to 'itemName'
+  const [itemDescription, setItemDescription] = useState(""); // Changed 'discription' to 'itemDescription'
 
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddData({ name, discription }); // Passed the correct variables here
-    setName("");
-    setDiscription("");
+    onAddData({ itemName, itemDescription }); // Updated to pass the new variable names
+    setItemName(""); // Resetting itemName after submit
+    setItemDescription(""); // Resetting itemDescription after submit
 
-    navigate("/view");
+    navigate("/view"); // Navigate to the 'view' page
   };
 
   return (
@@ -28,30 +28,30 @@ function Add({ onAddData }) {
             <div className="card-body">
               <form onSubmit={handleSubmit}>
                 <div className="mb-3">
-                  <label htmlFor="name" className="form-label">
+                  <label htmlFor="itemName" className="form-label">
                     Name
                   </label>
                   <input
                     type="text"
                     className="form-control"
-                    id="name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    placeholder="Enter your name"
+                    id="itemName" // Updated id to match the new variable name
+                    value={itemName}
+                    onChange={(e) => setItemName(e.target.value)} // Updated to use itemName
+                    placeholder="Enter the item name"
                     required
                   />
                 </div>
                 <div className="mb-3">
-                  <label htmlFor="discription" className="form-label">
-                    Discription
+                  <label htmlFor="itemDescription" className="form-label">
+                    Description
                   </label>
                   <input
                     type="text"
                     className="form-control"
-                    id="discription" // Corrected id from 'username' to 'discription'
-                    value={discription}
-                    onChange={(e) => setDiscription(e.target.value)} // Fixed variable reference
-                    placeholder="Enter your discription"
+                    id="itemDescription" // Updated id to match the new variable name
+                    value={itemDescription}
+                    onChange={(e) => setItemDescription(e.target.value)} // Updated to use itemDescription
+                    placeholder="Enter the item description"
                     required
                   />
                 </div>

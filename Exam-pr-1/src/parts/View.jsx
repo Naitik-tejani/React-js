@@ -7,7 +7,7 @@ function View({ data, onDelete }) {
       <ul>
         {data.map((item, index) => (
           <li key={index}>
-            {item} 
+            {item}
             <button onClick={() => onDelete(index)}>Delete</button>
           </li>
         ))}

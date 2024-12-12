@@ -1,22 +1,24 @@
 import React, { useState } from "react";
 
 function Signup({ onSignup }) {
-  const [userData, setUserData] = useState("");
+  const [username, setUsername] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSignup(userData);  // Pass the user data to the parent component (App)
+    if (username) {
+      onSignup(username); // Pass the username to the parent
+    }
   };
 
   return (
     <div>
-      <h2>Sign Up</h2>
+      <h2>Signup</h2>
       <form onSubmit={handleSubmit}>
-        <input 
-          type="text" 
-          value={userData} 
-          onChange={(e) => setUserData(e.target.value)} 
-          placeholder="Enter your name" 
+        <input
+          type="text"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          placeholder="Enter your username"
         />
         <button type="submit">Sign Up</button>
       </form>

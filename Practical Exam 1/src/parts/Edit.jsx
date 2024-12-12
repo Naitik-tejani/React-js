@@ -53,7 +53,7 @@ function Edit({ onSaveData }) {
                 </div>
                 <div className="mb-3">
                   <label htmlFor="username" className="form-label">
-                    Username
+                  Discription
                   </label>
                   <input
                     type="text"
@@ -64,32 +64,8 @@ function Edit({ onSaveData }) {
                     required
                   />
                 </div>
-                <div className="mb-3">
-                  <label htmlFor="email" className="form-label">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    className="form-control"
-                    id="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                  />
-                </div>
-                <div className="mb-3">
-                  <label htmlFor="phone" className="form-label">
-                    Phone
-                  </label>
-                  <input
-                    type="tel"
-                    className="form-control"
-                    id="phone"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    required
-                  />
-                </div>
+              
+                  
                 <div className="d-grid">
                   <button type="submit" className="btn btn-primary">
                     Save Changes

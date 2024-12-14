@@ -76,7 +76,7 @@ function EmployeeForm() {
                 ))}
                 <div className="d-grid">
                   <Button variant="primary" type="submit" className="crazy-button">
-                    Add Employee
+                  Submit
                   </Button>
                  
                 </div>

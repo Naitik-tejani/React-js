@@ -26,7 +26,7 @@ function EmployeeForm() {
   const validate = () => {
     const newErrors = {};
     if (!formData.emp_name) newErrors.emp_name = 'Name is required';
-    if (!formData.emp_email) newErrors.emp_email = 'Email is required';
+    if (!formData.emp_email) newErrors.emp_email = '@Email is required';
     if (!formData.emp_password) newErrors.emp_password = 'Password is required';
     if (!formData.emp_city) newErrors.emp_city = 'City is required';
     if (!formData.emp_salary || isNaN(formData.emp_salary)) newErrors.emp_salary = 'Valid salary is required';

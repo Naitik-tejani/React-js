@@ -1,70 +1,104 @@
 /* crazy styles for the Employee List */
 .crazy-card {
-    background: linear-gradient(to right, #ffa75f, #fee87bf3);
+    background: linear-gradient(to right, #ffa75f, #fee87b);
     border-radius: 10px;
     border: 2px solid #fff;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  }
-  
-  .crazy-title {
+}
+
+.crazy-title {
     font-family: 'Cursive', sans-serif;
     font-size: 1.5rem;
     color: #fff;
     text-transform: uppercase;
     letter-spacing: 2px;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-  }
-  
-  .crazy-button {
-    background-color: #007bff; /* Updated to blue */
+}
+
+/* New Button Styling */
+.crazy-button {
+    background: linear-gradient(135deg, #ff7e5f, #ffb74d);
     border: none;
     color: white;
     font-weight: bold;
+    font-size: 1.1rem;
+    padding: 12px 24px;
     border-radius: 50px;
-    transition: transform 0.2s ease-in-out, background-color 0.3s ease;
-  }
-  
-  .crazy-button:hover {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.crazy-button:hover {
     transform: scale(1.1);
-    background-color: #0056b3; /* Darker blue on hover */
-  }
-  
-  .crazy-table th, .crazy-table td {
+    background: linear-gradient(135deg, #ffb74d, #ff7e5f);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.crazy-button:active {
+    transform: scale(1);
+    background: #ff7e5f;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Styling for the secondary button */
+.crazy-button-secondary {
+    background-color: #28a745;
+    border-radius: 30px;
+    padding: 12px 24px;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.crazy-button-secondary:hover {
+    transform: scale(1.1);
+    background-color: #218838;
+}
+
+.crazy-button-secondary:active {
+    transform: scale(1);
+    background-color: #218838;
+}
+
+/* Table and row styles */
+.crazy-table th, .crazy-table td {
     text-align: center;
     font-size: 1.1rem;
     color: #333;
     font-family: 'Arial', sans-serif;
-  }
-  
-  .crazy-table th {
+}
+
+.crazy-table th {
     background-color: #ff7e5f;
     color: white;
-  }
-  
-  .crazy-row {
+}
+
+.crazy-row {
     background-color: #f9f9f9;
     transition: background-color 0.3s ease;
-  }
-  
-  .crazy-row:hover {
+}
+
+.crazy-row:hover {
     background-color: #ffebcc;
-  }
-  
-  .crazy-row td {
+}
+
+.crazy-row td {
     font-size: 1.1rem;
-  }
-  
-  @media (max-width: 768px) {
+}
+
+@media (max-width: 768px) {
     .crazy-title {
-      font-size: 2rem;
+        font-size: 2rem;
     }
-  
+
     .crazy-button {
-      font-size: 0.9rem;
+        font-size: 0.9rem;
     }
-  
+
     .crazy-table {
-      font-size: 0.9rem;
-    }  
-  }
-  
+        font-size: 0.9rem;
+    }
+}

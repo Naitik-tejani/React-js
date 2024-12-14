@@ -81,11 +81,11 @@ function EmployeeForm() {
                  
                 </div>
                 <div className="d-grid">
-                  <Button variant="primary" type="submit" className="crazy-button">
+                  
                   <Link to="/" className="btn btn-success mb-3 crazy-button">
                   View  Employee List
               </Link> 
-                  </Button>
+                  
                  
                 </div>
                 

@@ -1,0 +1,105 @@
+/* Root variables for spacing */
+:root {
+    --spacing-small: 10px;
+    --spacing-medium: 20px;
+    --spacing-large: 30px;
+  }
+  
+  /* Card with a gradient background and box-shadow */
+  .crazy-card {
+    background: linear-gradient(135deg, #ff6b6b, #f06595, #cc5de8);
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    animation: pulseCard 2s infinite;
+    overflow: hidden;
+    padding: var(--spacing-medium);
+    margin: var(--spacing-large) auto;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Animation for the card */
+  @keyframes pulseCard {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.02);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  /* Crazy title with a bounce animation */
+  .crazy-title {
+    font-weight: bold;
+    animation: bounce 2s infinite;
+    margin-bottom: var(--spacing-small);
+  }
+  
+  /* Bounce animation for the title */
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  /* Crazy label styling */
+  .crazy-label {
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    margin-bottom: var(--spacing-small);
+  }
+  
+  /* Input with glowing effect */
+  .crazy-input {
+    border: none;
+    border-radius: 10px;
+    padding: var(--spacing-small);
+    margin-bottom: var(--spacing-medium);
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+  }
+  
+  .crazy-input:focus {
+    box-shadow: 0 0 20px rgba(255, 182, 193, 0.7);
+    transform: translateY(-3px);
+  }
+  
+  /* Button with crazy gradient and hover effect */
+  .crazy-button {
+    background: linear-gradient(135deg, #ff6b6b, #f06595);
+    border: none;
+    border-radius: 50px;
+    padding: var(--spacing-small) var(--spacing-medium);
+    margin-top: var(--spacing-small);
+    font-weight: bold;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .crazy-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(240, 101, 149, 0.5);
+  }
+  
+  /* Container fade-in effect */
+  .my-5 {
+    animation: fadeIn 1.5s ease-in-out;
+    padding: var(--spacing-large);
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

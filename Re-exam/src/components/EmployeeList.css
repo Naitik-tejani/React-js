@@ -1,0 +1,70 @@
+/* crazy styles for the Employee List */
+.crazy-card {
+    background: linear-gradient(to right, #ffa75f, #fee87bf3);
+    border-radius: 10px;
+    border: 2px solid #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .crazy-title {
+    font-family: 'Cursive', sans-serif;
+    font-size: 1.5rem;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  .crazy-button {
+    background-color: #007bff; /* Updated to blue */
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 50px;
+    transition: transform 0.2s ease-in-out, background-color 0.3s ease;
+  }
+  
+  .crazy-button:hover {
+    transform: scale(1.1);
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  
+  .crazy-table th, .crazy-table td {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .crazy-table th {
+    background-color: #ff7e5f;
+    color: white;
+  }
+  
+  .crazy-row {
+    background-color: #f9f9f9;
+    transition: background-color 0.3s ease;
+  }
+  
+  .crazy-row:hover {
+    background-color: #ffebcc;
+  }
+  
+  .crazy-row td {
+    font-size: 1.1rem;
+  }
+  
+  @media (max-width: 768px) {
+    .crazy-title {
+      font-size: 2rem;
+    }
+  
+    .crazy-button {
+      font-size: 0.9rem;
+    }
+  
+    .crazy-table {
+      font-size: 0.9rem;
+    }  
+  }
+  
